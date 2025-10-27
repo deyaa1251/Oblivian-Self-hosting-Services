@@ -1,0 +1,43 @@
+oblivian-react/
+├── 📄 Configuration Files
+│   ├── package.json                  # Dependencies and scripts
+│   ├── vite.config.js               # Vite configuration
+│   ├── eslint.config.js             # ESLint rules
+│   ├── .gitignore                   # Git ignore patterns
+│   └── index.html                   # HTML entry point
+│
+├── 📚 Documentation
+│   ├── README.md                    # Complete documentation
+│   ├── QUICK_START.md               # Quick start guide
+│   ├── ADDING_SERVICES_EXAMPLE.md   # Service examples
+│   └── PROJECT_SUMMARY.md           # This conversion summary
+│
+├── 📁 public/                       # Static assets
+│   ├── assets/
+│   │   └── animation art GIF by sahlooter.gif
+│   ├── favicon.ico
+│   ├── favicon.svg
+│   └── _redirects                   # Cloudflare Pages routing
+│
+├── 📁 src/                          # Source code
+│   ├── 🎨 components/               # Reusable components
+│   │   ├── ServiceCard.jsx          # Service card component
+│   │   └── ServiceCard.css          # Service card styles
+│   │
+│   ├── 📄 pages/                    # Page components
+│   │   ├── Home.jsx                 # Home page
+│   │   ├── Home.css                 # Home page styles
+│   │   ├── Services.jsx             # Services page
+│   │   └── Services.css             # Services page styles
+│   │
+│   ├── 📊 data/                     # Data files
+│   │   └── services.js              # ⭐ ADD SERVICES HERE
+│   │
+│   ├── 🎨 styles/                   # Global styles
+│   │   └── global.css               # Design system & global CSS
+│   │
+│   ├── App.jsx                      # Main app with routing
+│   └── main.jsx                     # React entry point
+│
+└── 📁 dist/                         # Build output (generated)
+    └── (Production files after npm run build)

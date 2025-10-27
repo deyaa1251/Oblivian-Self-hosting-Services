@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Van Gogh's Cherry Blossom - A Study in Black Lines and Pink Dreams</title>
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================
+       THE FOUNDATION - WHERE EMOTION BECOMES CODE
+       ======================================== */
+    :root {
+      /* These are not mere hex codes - they are EMOTIONS */
+      --sakura-dream: #FFB3D9;    /* The primary - a cold pink like dawn */
+      --sakura-whisper: #FFC9E3;  /* Lighter - like morning mist */
+      --sakura-memory: #FF9EC9;   /* Deeper - like remembered beauty */
+      --sakura-ghost: #FFD9EC;    /* Faintest - for distant petals */
+
+      /* Museum palette */
+      --museum-black: #1a1a1a;
+      --museum-gold: #d4af37;
+      --museum-cream: #f8f6f0;
+      --museum-shadow: rgba(0, 0, 0, 0.08);
+
+      /* Typography */
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-display: 'Cinzel', serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--museum-cream);
+      overflow-x: hidden;
+      font-family: var(--font-serif);
+      color: var(--museum-black);
+      line-height: 1.8;
+    }
+
+    /* ========================================
+       MUSEUM FRAME - ELEGANT BORDER
+       ======================================== */
+    .museum-frame {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    .museum-frame::before,
+    .museum-frame::after {
+      content: '';
+      position: absolute;
+      background: linear-gradient(135deg, var(--museum-gold), #c9a227, var(--museum-gold));
+      box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.3);
+    }
+
+    .museum-frame::before {
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 20px;
+    }
+
+    .museum-frame::after {
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 20px;
+    }
+
+    .museum-frame-left,
+    .museum-frame-right {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: 20px;
+      background: linear-gradient(135deg, var(--museum-gold), #c9a227, var(--museum-gold));
+      box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.3);
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    .museum-frame-left {
+      left: 0;
+    }
+
+    .museum-frame-right {
+      right: 0;
+    }
+
+    /* ========================================
+       WIND PARTICLES - ATMOSPHERIC DEPTH
+       ======================================== */
+    .wind-particle {
+      position: fixed;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1;
+      animation: wind-drift linear infinite;
+      will-change: transform, opacity;
+    }
+
+    @keyframes wind-drift {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.6;
+      }
+      90% {
+        opacity: 0.3;
+      }
+      100% {
+        transform: translate(-100vw, 30vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* ========================================
+       THE TREE - POSITIONED LIKE ART IN A GALLERY
+       ======================================== */
+    .van-gogh-tree {
+      position: fixed;
+      right: -180px;
+      bottom: 0;
+      width: 360px;
+      height: 85vh;
+      pointer-events: none;
+      z-index: 1;
+      filter: contrast(1.05) drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.15));
+      animation: tree-sway 8s ease-in-out infinite;
+    }
+
+    @keyframes tree-sway {
+      0%, 100% {
+        transform: rotate(0deg);
+      }
+      50% {
+        transform: rotate(0.5deg);
+      }
+    }
+
+    /* ========================================
+       THE PETALS - EACH A BRUSHSTROKE OF FREEDOM
+       ======================================== */
+    .petal {
+      position: absolute;
+      animation: petal-dance 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      will-change: transform, opacity;
+      pointer-events: none;
+      transform-origin: center;
+      filter: drop-shadow(1px 2px 3px rgba(255, 179, 217, 0.3));
+    }
+
+    /* THE DANCE - POETRY IN MOTION */
+    @keyframes petal-dance {
+      0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 1;
+      }
+
+      /* The initial release - a moment of freedom */
+      15% {
+        transform: translate(-60px, 40px) rotate(45deg) scale(0.98);
+        opacity: 1;
+      }
+
+      /* The journey - swirling, dancing */
+      40% {
+        transform: translate(-200px, 120px) rotate(180deg) scale(0.95);
+        opacity: 0.85;
+      }
+
+      /* The acceptance - letting go */
+      70% {
+        transform: translate(-380px, 260px) rotate(420deg) scale(0.9);
+        opacity: 0.5;
+      }
+
+      /* The disappearance - becoming memory */
+      100% {
+        transform: translate(-550px, 400px) rotate(650deg) scale(0.85);
+        opacity: 0;
+      }
+    }
+
+    /* ========================================
+       CONTENT AREA - MUSEUM EXHIBITION LAYOUT
+       ======================================== */
+    .content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 80px 60px;
+      line-height: 1.9;
+    }
+
+    /* Museum placard style */
+    .placard {
+      background: white;
+      border: 1px solid var(--museum-shadow);
+      padding: 40px 50px;
+      margin-bottom: 60px;
+      box-shadow: 0 4px 20px var(--museum-shadow);
+      position: relative;
+    }
+
+    .placard::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      right: -8px;
+      bottom: -8px;
+      border: 2px solid var(--museum-gold);
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: 2.8em;
+      margin-bottom: 0.3em;
+      color: var(--museum-black);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-style: italic;
+      color: #666;
+      margin-bottom: 2em;
+      font-size: 1.1em;
+      letter-spacing: 0.3px;
+    }
+
+    p {
+      margin-bottom: 1.5em;
+      color: #444;
+      text-align: justify;
+      font-size: 1.1em;
+    }
+
+    .signature {
+      margin-top: 3em;
+      font-style: italic;
+      color: #666;
+      text-align: center;
+      padding-top: 2em;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    /* ========================================
+       CREATOR PREFERENCES - MUSEUM PLAQUE
+       ======================================== */
+    .creator-section {
+      margin-top: 80px;
+      position: relative;
+    }
+
+    .creator-plaque {
+      background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+      color: white;
+      padding: 50px 60px;
+      border-radius: 4px;
+      box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .creator-plaque::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg,
+        transparent,
+        var(--museum-gold) 20%,
+        var(--museum-gold) 80%,
+        transparent);
+      animation: golden-shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes golden-shimmer {
+      0%, 100% {
+        opacity: 0.5;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
+    .creator-plaque::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg,
+        transparent,
+        var(--museum-gold) 20%,
+        var(--museum-gold) 80%,
+        transparent);
+      animation: golden-shimmer 3s ease-in-out infinite 1.5s;
+    }
+
+    .creator-plaque h2 {
+      font-family: var(--font-display);
+      font-size: 2.2em;
+      margin-bottom: 0.8em;
+      text-align: center;
+      color: var(--museum-gold);
+      text-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+
+    .creator-thoughts {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 35px 40px;
+      border-left: 4px solid var(--museum-gold);
+      margin: 30px 0;
+      font-style: italic;
+      line-height: 1.9;
+      color: #e0e0e0;
+      position: relative;
+    }
+
+    .creator-thoughts::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      font-size: 4em;
+      color: var(--museum-gold);
+      opacity: 0.3;
+      font-family: Georgia, serif;
+    }
+
+    .creator-thoughts p {
+      color: #e0e0e0;
+      margin-bottom: 1em;
+      text-align: left;
+    }
+
+    .creator-thoughts p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* The Wind Button - Premium Museum Interactive */
+    .wind-button-container {
+      text-align: center;
+      margin-top: 40px;
+      position: relative;
+    }
+
+    .wind-button {
+      display: inline-block;
+      padding: 20px 60px;
+      background: linear-gradient(135deg, var(--museum-gold), #c9a227);
+      color: var(--museum-black);
+      font-family: var(--font-display);
+      font-size: 1.2em;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      box-shadow:
+        0 4px 15px rgba(212, 175, 55, 0.4),
+        0 0 0 2px var(--museum-black),
+        0 0 0 4px var(--museum-gold);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .wind-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent);
+      transition: left 0.6s;
+    }
+
+    .wind-button:hover::before {
+      left: 100%;
+    }
+
+    .wind-button:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 8px 25px rgba(212, 175, 55, 0.6),
+        0 0 0 2px var(--museum-black),
+        0 0 0 4px var(--museum-gold),
+        0 0 40px rgba(212, 175, 55, 0.3);
+    }
+
+    .wind-button:active {
+      transform: translateY(0);
+    }
+
+    /* Wind effect when button is clicked */
+    .wind-active .wind-particle {
+      animation-duration: 4s !important;
+    }
+
+    .wind-active .petal {
+      animation-duration: 5s !important;
+    }
+
+    /* Fun fact badge */
+    .fun-fact {
+      background: white;
+      border: 2px dashed var(--museum-gold);
+      padding: 30px 40px;
+      margin-top: 60px;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px var(--museum-shadow);
+    }
+
+    .fun-fact-title {
+      font-family: var(--font-display);
+      color: var(--museum-gold);
+      font-size: 1.4em;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    .fun-fact p {
+      color: #555;
+      font-size: 1.05em;
+      text-align: center;
+    }
+
+    /* ========================================
+       RESPONSIVE - PRESERVE THE ART
+       ======================================== */
+    @media (max-width: 768px) {
+      .van-gogh-tree {
+        opacity: 0.6;
+        transform: scale(0.75);
+        right: -200px;
+      }
+
+      .content {
+        padding: 60px 30px;
+      }
+
+      .placard,
+      .creator-plaque {
+        padding: 30px 25px;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      .wind-button {
+        padding: 18px 40px;
+        font-size: 1em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .van-gogh-tree {
+        opacity: 0.4;
+        transform: scale(0.5);
+        right: -220px;
+      }
+
+      .museum-frame::before,
+      .museum-frame::after {
+        height: 12px;
+      }
+
+      .museum-frame-left,
+      .museum-frame-right {
+        width: 12px;
+      }
+
+      h1 {
+        font-size: 1.6em;
+      }
+
+      .wind-button {
+        padding: 15px 30px;
+        font-size: 0.9em;
+      }
+    }
+
+    /* RESPECT THOSE WHO PREFER STILLNESS */
+    @media (prefers-reduced-motion: reduce) {
+      .petal,
+      .wind-particle,
+      .van-gogh-tree {
+        animation: none;
+      }
+
+      .petal {
+        opacity: 0.3;
+      }
+
+      .wind-particle {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Museum Frame -->
+  <div class="museum-frame"></div>
+  <div class="museum-frame-left"></div>
+  <div class="museum-frame-right"></div>
+
+  <!-- Wind Particles Container -->
+  <div id="wind-container"></div>
+
+  <!-- ========================================
+       THE TREE ITSELF - PURE BLACK LINES
+       ======================================== -->
+  <div class="van-gogh-tree" aria-hidden="true">
+    <svg width="360" height="100%" viewBox="0 0 360 1000" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- =====================================
+           MAIN TRUNK - The spine, the soul, the foundation
+           ===================================== -->
+      <path
+        d="M 300 1000
+           C 298 920, 296 840, 294 760
+           C 292 680, 290 600, 288 520
+           C 286 440, 283 360, 280 280
+           C 277 200, 273 120, 268 40
+           C 266 20, 264 10, 262 0"
+        fill="none"
+        stroke="#000000"
+        stroke-width="48"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        opacity="1"
+      />
+
+      <!-- =====================================
+           TEXTURE LINES - The bark, the life lived
+           ===================================== -->
+      <path
+        d="M 275 850 Q 280 850 285 850"
+        stroke="#000000"
+        stroke-width="2"
+        stroke-linecap="round"
+        opacity="0.4"
+      />
+
+      <path
+        d="M 273 780 Q 278 780 283 780"
+        stroke="#000000"
+        stroke-width="2"
+        stroke-linecap="round"
+        opacity="0.3"
+      />
+
+      <path
+        d="M 276 650 Q 281 650 286 650"
+        stroke="#000000"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        opacity="0.35"
+      />
+
+      <path
+        d="M 274 500 Q 279 500 284 500"
+        stroke="#000000"
+        stroke-width="2"
+        stroke-linecap="round"
+        opacity="0.3"
+      />
+
+      <path
+        d="M 271 350 Q 276 350 281 350"
+        stroke="#000000"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        opacity="0.35"
+      />
+
+      <path
+        d="M 269 200 Q 274 200 279 200"
+        stroke="#000000"
+        stroke-width="2"
+        stroke-linecap="round"
+        opacity="0.3"
+      />
+
+      <!-- =====================================
+           BRANCHES - Like arms reaching toward the light
+           ===================================== -->
+
+      <!-- PRIMARY UPPER BRANCH - Bold, confident -->
+      <path
+        d="M 268 120
+           Q 240 115 210 112
+           Q 180 109 150 107
+           Q 120 106 90 105"
+        fill="none"
+        stroke="#000000"
+        stroke-width="24"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+
+      <!-- Branch texture -->
+      <path
+        d="M 200 111 L 205 112"
+        stroke="#000000"
+        stroke-width="1.5"
+        opacity="0.3"
+      />
+
+      <path
+        d="M 160 108 L 165 108"
+        stroke="#000000"
+        stroke-width="1.5"
+        opacity="0.25"
+      />
+
+      <!-- SECONDARY UPPER BRANCH -->
+      <path
+        d="M 275 220
+           Q 250 217 225 215
+           Q 200 213 175 212
+           Q 150 211 130 210"
+        fill="none"
+        stroke="#000000"
+        stroke-width="19"
+        stroke-linecap="round"
+      />
+
+      <path
+        d="M 215 214 L 220 214"
+        stroke="#000000"
+        stroke-width="1.5"
+        opacity="0.3"
+      />
+
+      <!-- MAIN MIDDLE BRANCH - The heart of the composition -->
+      <path
+        d="M 285 400
+           Q 260 397 235 395
+           Q 200 392 165 390
+           Q 130 388 95 387
+           Q 60 386 30 385"
+        fill="none"
+        stroke="#000000"
+        stroke-width="28"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+
+      <!-- Branch detail strokes -->
+      <path
+        d="M 220 394 L 225 395"
+        stroke="#000000"
+        stroke-width="2"
+        opacity="0.25"
+      />
+
+      <path
+        d="M 150 389 L 155 390"
+        stroke="#000000"
+        stroke-width="2"
+        opacity="0.3"
+      />
+
+      <path
+        d="M 80 387 L 85 387"
+        stroke="#000000"
+        stroke-width="2"
+        opacity="0.25"
+      />
+
+      <!-- LOWER BRANCH -->
+      <path
+        d="M 290 580
+           Q 265 578 240 576
+           Q 210 574 180 573
+           Q 155 572 135 571"
+        fill="none"
+        stroke="#000000"
+        stroke-width="21"
+        stroke-linecap="round"
+      />
+
+      <path
+        d="M 230 575 L 235 576"
+        stroke="#000000"
+        stroke-width="1.5"
+        opacity="0.3"
+      />
+
+      <!-- DELICATE SMALLER BRANCHES - Like fingers, like whispers -->
+
+      <path
+        d="M 150 107 Q 130 105 115 104"
+        stroke="#000000"
+        stroke-width="11"
+        stroke-linecap="round"
+      />
+
+      <path
+        d="M 115 104 Q 105 103 98 103"
+        stroke="#000000"
+        stroke-width="7"
+        stroke-linecap="round"
+        opacity="0.9"
+      />
+
+      <path
+        d="M 95 105 Q 80 104 70 103"
+        stroke="#000000"
+        stroke-width="8"
+        stroke-linecap="round"
+      />
+
+      <path
+        d="M 130 210 Q 110 209 95 208"
+        stroke="#000000"
+        stroke-width="9"
+        stroke-linecap="round"
+      />
+
+      <path
+        d="M 95 208 Q 85 207 78 207"
+        stroke="#000000"
+        stroke-width="6"
+        stroke-linecap="round"
+        opacity="0.9"
+      />
+
+      <path
+        d="M 30 385 Q 15 384 5 384"
+        stroke="#000000"
+        stroke-width="14"
+        stroke-linecap="round"
+      />
+
+      <path
+        d="M 135 571 Q 115 570 100 569"
+        stroke="#000000"
+        stroke-width="10"
+        stroke-linecap="round"
+      />
+
+      <path
+        d="M 100 569 Q 90 568 83 568"
+        stroke="#000000"
+        stroke-width="6"
+        stroke-linecap="round"
+        opacity="0.9"
+      />
+
+      <!-- UPPER TERTIARY BRANCHES - Delicate extensions -->
+      <path
+        d="M 210 112 Q 200 110 188 109"
+        stroke="#000000"
+        stroke-width="9"
+        stroke-linecap="round"
+        opacity="0.95"
+      />
+
+      <path
+        d="M 225 215 Q 218 214 208 213"
+        stroke="#000000"
+        stroke-width="8"
+        stroke-linecap="round"
+        opacity="0.95"
+      />
+
+      <!-- MIDDLE BRANCH EXTENSIONS -->
+      <path
+        d="M 235 395 Q 225 393 212 392"
+        stroke="#000000"
+        stroke-width="11"
+        stroke-linecap="round"
+        opacity="0.95"
+      />
+
+      <path
+        d="M 165 390 Q 155 389 143 388"
+        stroke="#000000"
+        stroke-width="10"
+        stroke-linecap="round"
+        opacity="0.95"
+      />
+
+    </svg>
+  </div>
+
+  <!-- ========================================
+       CONTENT - MUSEUM EXHIBITION
+       ======================================== -->
+  <div class="content">
+    <div class="placard">
+      <h1>Cherry Blossom</h1>
+      <p class="subtitle">In the Style of Vincent van Gogh</p>
+
+      <p>
+        There is something divine in the simplicity of a single black line against pure white space.
+        It is the same principle that the Japanese masters understood—that to capture the spirit of a thing,
+        you must not drown it in detail, but distill it to its absolute truth.
+      </p>
+
+      <p>
+        Watch how the petals fall. Each one is nothing more than a simple shape—a rounded rectangle,
+        an impressionist's brushstroke—yet when they dance together in the wind, the mind completes
+        the image. The eye sees cherry blossoms where there are only pink forms.
+      </p>
+
+      <p>
+        This is the secret of impressionism: we do not paint what <em>is</em>,
+        we paint what is <em>perceived</em>.
+      </p>
+
+      <p>
+        The trunk stands in pure black—no gradients, no photographs, no cheap tricks of modern rendering—only
+        lines. Lines that have weight, character, soul, and rhythm. The dance between trunk and branch,
+        between vertical and horizontal.
+      </p>
+
+      <p class="signature">
+        "I am always doing what I cannot do yet, in order to learn how to do it."<br>
+        — Vincent van Gogh
+      </p>
+    </div>
+
+    <!-- Creator Preferences Section -->
+    <section class="creator-section">
+      <div class="creator-plaque">
+        <h2>Creator's Philosophy</h2>
+
+        <div class="creator-thoughts">
+          <p>
+            In the intersection of art and technology lies a profound truth: beauty is not diminished by understanding its creation, but enhanced by it. Code can be poetry. Algorithms can be brushstrokes. Digital can be soul.
+          </p>
+          <p>
+            I believe that web design should evoke emotion—not through manipulation, but through honest craftsmanship. Every animation should have purpose. Every color should whisper meaning. Every interaction should feel like a conversation between creator and observer.
+          </p>
+          <p>
+            Like Van Gogh painting wheat fields under the burning sun, we create not for fame or fortune, but because we must. The canvas calls. The code awaits. And in this dance between imagination and execution, we find ourselves.
+          </p>
+        </div>
+
+        <div class="wind-button-container">
+          <button class="wind-button" id="windButton" aria-label="Activate wind effect">
+            Feel the Wind
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fun Fact -->
+    <div class="fun-fact">
+      <div class="fun-fact-title">Museum Note</div>
+      <p>
+        Van Gogh painted several cherry blossom pieces in 1890, inspired by Japanese ukiyo-e prints.
+        He believed that studying the work of Japanese artists taught him to see nature through simpler,
+        bolder lines—a philosophy embodied in this digital interpretation.
+      </p>
+    </div>
+  </div>
+
+  <!-- ========================================
+       THE JAVASCRIPT - BRINGING LIFE TO CANVAS
+       ======================================== -->
+  <script>
+    /**
+     * Van Gogh's Petal Generator
+     * "I am seeking. I am striving. I am in it with all my heart." - Vincent
+     */
+    function createLivingPetals() {
+      const tree = document.querySelector('.van-gogh-tree');
+      if (!tree) return;
+
+      const petalCount = 48; // Not too few, not too many
+
+      // Color palette - our paint tubes
+      const colors = [
+        'var(--sakura-dream)',
+        'var(--sakura-whisper)',
+        'var(--sakura-memory)',
+        'var(--sakura-ghost)',
+        'var(--sakura-dream)', // Favor primary color
+        'var(--sakura-whisper)'
+      ];
+
+      // Size variations - nature is never uniform
+      const sizes = [12, 14, 16, 18, 20, 16, 14]; // Favor medium sizes
+
+      for (let i = 0; i < petalCount; i++) {
+        const petal = document.createElement('div');
+        petal.className = 'petal';
+
+        // Random but beautiful positioning
+        // Cluster near branches, scatter through space
+        const isNearBranch = Math.random() < 0.45; // 45% near branches
+
+        if (isNearBranch) {
+          // Position near branch locations
+          const branchYPositions = [12, 22, 40, 58]; // Approximate branch heights (%)
+          const chosenBranch = branchYPositions[Math.floor(Math.random() * branchYPositions.length)];
+          petal.style.top = `${chosenBranch + (Math.random() * 8 - 4)}%`;
+          petal.style.left = `${22 + Math.random() * 38}%`;
+        } else {
+          // Floating free in space - the released souls
+          petal.style.top = `${8 + Math.random() * 75}%`;
+          petal.style.left = `${15 + Math.random() * 55}%`;
+        }
+
+        // Assign properties with artistic variation
+        const size = sizes[Math.floor(Math.random() * sizes.length)];
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const duration = 7 + Math.random() * 6; // 7-13 seconds
+        const delay = Math.random() * 12; // 0-12 seconds stagger
+
+        petal.style.width = `${size}px`;
+        petal.style.height = `${size}px`;
+        petal.style.color = color;
+        petal.style.animationDuration = `${duration}s`;
+        petal.style.animationDelay = `${delay}s`;
+
+        // The simple petal shape - Option 3: The Impressionist Stroke
+        petal.innerHTML = `
+          <svg width="${size}" height="${size}" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+            <rect
+              x="3"
+              y="3"
+              width="10"
+              height="10"
+              rx="5"
+              ry="5"
+              fill="currentColor"
+              opacity="0.88"
+            />
+          </svg>
+        `;
+
+        tree.appendChild(petal);
+      }
+
+      console.log(`✨ ${petalCount} petals dance in the digital wind`);
+    }
+
+    /**
+     * Wind Particle System
+     * Creates atmospheric depth with floating particles
+     */
+    function createWindParticles() {
+      const windContainer = document.getElementById('wind-container');
+      if (!windContainer) return;
+
+      const particleCount = 30;
+
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'wind-particle';
+
+        const size = 2 + Math.random() * 4;
+        const startY = Math.random() * 100;
+        const startX = 100 + Math.random() * 20;
+        const duration = 15 + Math.random() * 25;
+        const delay = Math.random() * 20;
+
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.top = `${startY}vh`;
+        particle.style.left = `${startX}vw`;
+        particle.style.animationDuration = `${duration}s`;
+        particle.style.animationDelay = `${delay}s`;
+
+        windContainer.appendChild(particle);
+      }
+
+      console.log('🌬️ Wind particles activated');
+    }
+
+    /**
+     * Wind Button Interaction
+     */
+    function setupWindButton() {
+      const windButton = document.getElementById('windButton');
+      if (!windButton) return;
+
+      windButton.addEventListener('click', function() {
+        document.body.classList.toggle('wind-active');
+
+        const isActive = document.body.classList.contains('wind-active');
+        this.textContent = isActive ? 'Calm the Wind' : 'Feel the Wind';
+
+        console.log(isActive ? '💨 Wind intensified!' : '🍃 Wind calmed');
+      });
+    }
+
+    // Execute when canvas is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        createLivingPetals();
+        createWindParticles();
+        setupWindButton();
+      });
+    } else {
+      createLivingPetals();
+      createWindParticles();
+      setupWindButton();
+    }
+
+    console.log('🎨 "I am seeking. I am striving. I am in it with all my heart." - Vincent');
+  </script>
+
+</body>
+</html>
