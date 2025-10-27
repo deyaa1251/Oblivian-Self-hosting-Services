@@ -1,0 +1,90 @@
+/* Service Box - Following CTA button pattern */
+.service-box {
+  display: block;
+  padding: var(--spacing-md);
+  border: var(--line-width) solid var(--color-black);
+  background-color: var(--color-white);
+  color: var(--color-black);
+  font-family: var(--font-primary);
+  cursor: pointer;
+  transition: background-color 0.4s var(--transition-smooth),
+              color 0.4s var(--transition-smooth),
+              transform 0.3s var(--transition-smooth),
+              box-shadow 0.3s var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.service-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--color-black);
+  transition: width 0.4s var(--transition-smooth);
+  z-index: 0;
+}
+
+.service-box:hover::before {
+  width: 100%;
+}
+
+.service-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.service-box:hover .service-box__title,
+.service-box:hover .service-box__description,
+.service-box:hover .service-box__tech {
+  color: var(--color-white);
+}
+
+.service-box:focus {
+  outline: 2px solid var(--color-black);
+  outline-offset: 4px;
+}
+
+.service-box__content {
+  position: relative;
+  z-index: 1;
+}
+
+.service-box__title {
+  font-size: var(--text-body-large);
+  font-weight: var(--font-weight-light);
+  letter-spacing: 0.5px;
+  margin-bottom: var(--spacing-xs);
+  transition: color 0.4s var(--transition-smooth);
+}
+
+.service-box__description {
+  font-size: var(--text-body);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-sm);
+  transition: color 0.4s var(--transition-smooth);
+}
+
+.service-box__tech {
+  font-size: var(--text-small);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  position: relative;
+  z-index: 1;
+  transition: color 0.4s var(--transition-smooth);
+  margin-top: auto;
+}
+
+@media (max-width: 640px) {
+  .service-box {
+    min-height: 200px;
+  }
+}

@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore our comprehensive suite of self-hosted services. From email to cloud storage, achieve complete digital sovereignty.">
+  <meta name="author" content="Digital Sovereignty">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Self-Hosted Services - Digital Sovereignty">
+  <meta property="og:description" content="Explore our comprehensive suite of self-hosted services for complete digital independence.">
+
+  <title>Self-Hosted Services - Digital Sovereignty</title>
+
+  <!-- Preconnect to Google Fonts for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================
+       CSS CUSTOM PROPERTIES - DESIGN SYSTEM
+       ============================================ */
+    :root {
+      /* Colors */
+      --color-black: #000000;
+      --color-white: #FFFFFF;
+      --color-pink: #FFB3D9;
+      --color-pink-light: #FFC9E3;
+      --color-black-70: rgba(0, 0, 0, 0.7);
+      --color-black-03: rgba(0, 0, 0, 0.03);
+
+      /* Typography */
+      --font-primary: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+      --font-weight-light: 300;
+      --font-weight-regular: 400;
+
+      /* Type Scale */
+      --text-hero: 6rem;           /* 96px */
+      --text-secondary: 4rem;      /* 64px */
+      --text-section: 2.5rem;      /* 40px */
+      --text-body-large: 1.5rem;   /* 24px */
+      --text-body: 1.125rem;       /* 18px */
+      --text-small: 0.875rem;      /* 14px */
+
+      /* Spacing - 8px base grid */
+      --spacing-unit: 8px;
+      --spacing-xs: calc(var(--spacing-unit) * 2);    /* 16px */
+      --spacing-sm: calc(var(--spacing-unit) * 3);    /* 24px */
+      --spacing-md: calc(var(--spacing-unit) * 6);    /* 48px */
+      --spacing-lg: calc(var(--spacing-unit) * 10);   /* 80px */
+      --spacing-xl: calc(var(--spacing-unit) * 15);   /* 120px */
+      --spacing-xxl: calc(var(--spacing-unit) * 20);  /* 160px */
+
+      /* Layout */
+      --content-max-width: 1200px;
+      --content-reading-width: 680px;
+      --gutter: 96px;
+
+      /* Line System */
+      --line-width: 1px;
+
+      /* Transitions */
+      --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-duration: 0.6s;
+      --transition-fast: 0.3s;
+      --transition-slow: 0.8s;
+    }
+
+    /* ============================================
+       RESPONSIVE BREAKPOINT ADJUSTMENTS
+       ============================================ */
+    @media (max-width: 1024px) {
+      :root {
+        --text-hero: 4rem;         /* 64px */
+        --text-secondary: 3rem;    /* 48px */
+        --text-section: 2rem;      /* 32px */
+        --spacing-xl: 80px;
+        --spacing-xxl: 120px;
+        --gutter: 48px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      :root {
+        --text-hero: 3rem;         /* 48px */
+        --text-secondary: 2rem;    /* 32px */
+        --text-section: 1.5rem;    /* 24px */
+        --text-body-large: 1.25rem; /* 20px */
+        --text-body: 1rem;         /* 16px */
+        --spacing-lg: 48px;
+        --spacing-xl: 64px;
+        --spacing-xxl: 96px;
+        --gutter: 24px;
+      }
+    }
+
+    /* ============================================
+       GLOBAL RESET & BASE STYLES
+       ============================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-primary);
+      font-weight: var(--font-weight-regular);
+      color: var(--color-black);
+      background-color: var(--color-white);
+      line-height: 1.8;
+      letter-spacing: 0.3px;
+      overflow-x: hidden;
+      opacity: 0;
+      animation: fadeInPage 0.3s ease-out forwards;
+      position: relative;
+    }
+
+    @keyframes fadeInPage {
+      to { opacity: 1; }
+    }
+
+    /* Typography base styles */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: var(--font-weight-light);
+      line-height: 1.2;
+    }
+
+    p {
+      max-width: var(--content-reading-width);
+    }
+
+    a {
+      color: var(--color-black);
+      text-decoration: none;
+      position: relative;
+    }
+
+    /* ============================================
+       UTILITY CLASSES
+       ============================================ */
+    .container {
+      max-width: var(--content-max-width);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity var(--transition-duration) var(--transition-smooth),
+                  transform var(--transition-duration) var(--transition-smooth);
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Accessibility - Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    /* ============================================
+       ABSTRACT LINE ART DECORATION
+       ============================================ */
+    .line-art {
+      position: fixed;
+      right: 80px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 300px;
+      height: 600px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Animated lines */
+    .line {
+      opacity: 0;
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    .line:nth-child(1) { animation-delay: 0.2s; }
+    .line:nth-child(2) { animation-delay: 0.4s; }
+    .line:nth-child(3) { animation-delay: 0.6s; }
+    .line:nth-child(4) { animation-delay: 0.8s; }
+    .line:nth-child(5) { animation-delay: 1s; }
+    .line:nth-child(6) { animation-delay: 1.2s; }
+    .line:nth-child(7) { animation-delay: 1.4s; }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .line-art {
+        right: 40px;
+        transform: translateY(-50%) scale(0.8);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .line-art {
+        right: 20px;
+        transform: translateY(-50%) scale(0.6);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .line-art {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .line {
+        animation: none !important;
+        opacity: 1;
+      }
+    }
+
+    /* ============================================
+       HEADER / NAVIGATION
+       ============================================ */
+    .header {
+      padding: var(--spacing-md) 0;
+      position: relative;
+    }
+
+    .header__content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header__logo {
+      font-size: var(--text-body-large);
+      font-weight: var(--font-weight-light);
+      letter-spacing: 0.5px;
+    }
+
+    .header__back {
+      font-size: var(--text-body);
+      position: relative;
+      display: inline-block;
+      transition: opacity 0.3s var(--transition-smooth);
+    }
+
+    .header__back::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: var(--line-width);
+      background-color: var(--color-black);
+      transition: width 0.3s var(--transition-smooth);
+    }
+
+    .header__back:hover::after {
+      width: 100%;
+    }
+
+    /* ============================================
+       HERO SECTION
+       ============================================ */
+    .hero {
+      padding: var(--spacing-xl) 0;
+      position: relative;
+    }
+
+    .hero__content {
+      max-width: var(--content-reading-width);
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero__title {
+      font-size: var(--text-secondary);
+      font-weight: var(--font-weight-light);
+      letter-spacing: -1px;
+      line-height: 1.2;
+      margin-bottom: var(--spacing-sm);
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out 0.2s forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+    }
+
+    .hero__subtitle {
+      font-size: var(--text-body-large);
+      font-weight: var(--font-weight-regular);
+      letter-spacing: 0.5px;
+      line-height: 1.6;
+      margin: 0 auto;
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out 0.4s forwards;
+    }
+
+    /* Hero decorative lines */
+    .hero__lines {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xs);
+      margin-top: var(--spacing-md);
+      align-items: center;
+    }
+
+    .hero__line {
+      width: 200px;
+      height: var(--line-width);
+      background-color: var(--color-black);
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out 0.6s forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* ============================================
+       SERVICES GRID SECTION
+       ============================================ */
+    .services {
+      padding: var(--spacing-xxl) 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .services__intro {
+      max-width: var(--content-reading-width);
+      margin: 0 auto var(--spacing-xl);
+      text-align: center;
+    }
+
+    .services__intro-text {
+      font-size: var(--text-body);
+      line-height: 1.8;
+      margin: 0 auto;
+    }
+
+    .services__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-md);
+      margin-top: var(--spacing-lg);
+    }
+
+    /* Service Box - Following CTA button pattern */
+    .service-box {
+      display: block;
+      padding: var(--spacing-md);
+      border: var(--line-width) solid var(--color-black);
+      background-color: var(--color-white);
+      color: var(--color-black);
+      font-family: var(--font-primary);
+      cursor: pointer;
+      transition: background-color 0.4s var(--transition-smooth),
+                  color 0.4s var(--transition-smooth),
+                  transform 0.3s var(--transition-smooth),
+                  box-shadow 0.3s var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+      text-align: left;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .service-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: var(--color-black);
+      transition: width 0.4s var(--transition-smooth);
+      z-index: 0;
+    }
+
+    .service-box:hover::before {
+      width: 100%;
+    }
+
+    .service-box:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-box:hover .service-box__title,
+    .service-box:hover .service-box__description,
+    .service-box:hover .service-box__tech {
+      color: var(--color-white);
+    }
+
+    .service-box:focus {
+      outline: 2px solid var(--color-black);
+      outline-offset: 4px;
+    }
+
+    .service-box__content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-box__title {
+      font-size: var(--text-body-large);
+      font-weight: var(--font-weight-light);
+      letter-spacing: 0.5px;
+      margin-bottom: var(--spacing-xs);
+      transition: color 0.4s var(--transition-smooth);
+    }
+
+    .service-box__description {
+      font-size: var(--text-body);
+      line-height: 1.6;
+      margin-bottom: var(--spacing-sm);
+      transition: color 0.4s var(--transition-smooth);
+    }
+
+    .service-box__tech {
+      font-size: var(--text-small);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0.7;
+      position: relative;
+      z-index: 1;
+      transition: color 0.4s var(--transition-smooth);
+      margin-top: auto;
+    }
+
+    @media (max-width: 640px) {
+      .services__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-box {
+        min-height: 200px;
+      }
+    }
+
+    /* ============================================
+       DIVIDER ELEMENT
+       ============================================ */
+    .divider {
+      width: 100%;
+      max-width: var(--content-max-width);
+      margin: var(--spacing-xl) auto;
+      padding: 0 var(--gutter);
+      position: relative;
+    }
+
+    .divider__line {
+      width: 100%;
+      height: var(--line-width);
+      background-color: var(--color-black);
+      position: relative;
+    }
+
+    .divider__dot {
+      width: 6px;
+      height: 6px;
+      background-color: var(--color-black);
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .footer {
+      padding: var(--spacing-lg) 0 var(--spacing-md);
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: var(--gutter);
+      right: var(--gutter);
+      height: var(--line-width);
+      background-color: var(--color-black);
+    }
+
+    .footer__content {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+
+    .footer__text {
+      font-size: var(--text-small);
+      letter-spacing: 0.5px;
+    }
+
+    .footer__email {
+      font-size: var(--text-small);
+      position: relative;
+      display: inline-block;
+      transition: opacity 0.3s var(--transition-smooth);
+    }
+
+    .footer__email::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: var(--line-width);
+      background-color: var(--color-black);
+      transition: width 0.3s var(--transition-smooth);
+    }
+
+    .footer__email:hover::after {
+      width: 100%;
+    }
+
+    .footer__email:hover {
+      opacity: 0.7;
+    }
+
+    .footer__copyright {
+      font-size: var(--text-small);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-top: var(--spacing-xs);
+    }
+
+    .footer__mark {
+      width: 40px;
+      height: 40px;
+      margin: var(--spacing-sm) auto 0;
+      position: relative;
+    }
+
+    .footer__mark::before,
+    .footer__mark::after {
+      content: '';
+      position: absolute;
+      background-color: var(--color-black);
+    }
+
+    .footer__mark::before {
+      width: 100%;
+      height: var(--line-width);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .footer__mark::after {
+      width: var(--line-width);
+      height: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* ============================================
+       ART SECTION - GIF WITH TEXT INTEGRATION
+       ============================================ */
+    .art-section {
+      padding: var(--spacing-xxl) 0 var(--spacing-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .art-section__content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: var(--spacing-lg);
+      align-items: center;
+      position: relative;
+    }
+
+    .art-section__gif {
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+      transition: transform var(--transition-duration) var(--transition-smooth),
+                  box-shadow var(--transition-duration) var(--transition-smooth);
+    }
+
+    .art-section__gif:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.18);
+    }
+
+    .art-gif {
+      width: 100%;
+      height: auto;
+      display: block;
+      opacity: 0;
+      animation: fadeInGif 0.8s ease-out 0.3s forwards;
+    }
+
+    @keyframes fadeInGif {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .art-section__text {
+      position: relative;
+      z-index: 2;
+    }
+
+    .art-text {
+      font-size: var(--text-body-large);
+      line-height: 1.8;
+      max-width: 100%;
+      opacity: 0;
+      animation: fadeInText 0.8s ease-out 0.6s forwards;
+    }
+
+    .art-text em {
+      font-style: italic;
+      font-weight: var(--font-weight-light);
+      color: var(--color-black);
+      position: relative;
+    }
+
+    .art-text em::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: var(--color-black);
+      opacity: 0.3;
+    }
+
+    @keyframes fadeInText {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .art-section__content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+      }
+
+      .art-section__gif {
+        max-width: 300px;
+        margin: 0 auto;
+      }
+
+      .art-text {
+        font-size: var(--text-body);
+        text-align: center;
+      }
+    }
+
+    /* ============================================
+       MYSTERIOUS BUTTON - TEMPTING & INTERACTIVE
+       ============================================ */
+    .mystery-section {
+      padding: var(--spacing-lg) 0 var(--spacing-xl);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .mystery-button {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 120px;
+      height: 120px;
+      cursor: pointer;
+      transition: transform var(--transition-duration) var(--transition-smooth);
+    }
+
+    .mystery-button:hover {
+      transform: scale(1.15);
+    }
+
+    .mystery-button:active {
+      transform: scale(0.95);
+    }
+
+    /* Animated rings */
+    .mystery-button__ring {
+      position: absolute;
+      border-radius: 50%;
+      border: var(--line-width) solid var(--color-black);
+      animation: ring-pulse 3s ease-in-out infinite;
+    }
+
+    .mystery-button__ring--outer {
+      width: 100%;
+      height: 100%;
+      opacity: 0.3;
+      animation-delay: 0s;
+    }
+
+    .mystery-button__ring--middle {
+      width: 75%;
+      height: 75%;
+      opacity: 0.5;
+      animation-delay: 1s;
+    }
+
+    .mystery-button__ring--inner {
+      width: 50%;
+      height: 50%;
+      opacity: 0.7;
+      animation-delay: 2s;
+    }
+
+    @keyframes ring-pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.3;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 0.6;
+      }
+    }
+
+    /* Core of the button */
+    .mystery-button__core {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      background-color: var(--color-white);
+      border: 2px solid var(--color-black);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+      transition: all var(--transition-fast) var(--transition-smooth);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .mystery-button__core svg {
+      color: var(--color-black);
+      transition: all var(--transition-fast) var(--transition-smooth);
+    }
+
+    .mystery-button:hover .mystery-button__core {
+      background-color: var(--color-black);
+      transform: rotate(180deg);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .mystery-button:hover .mystery-button__core svg {
+      color: var(--color-white);
+    }
+
+    .mystery-button:hover .mystery-button__ring {
+      animation-duration: 1.5s;
+    }
+
+    /* Focus state for accessibility */
+    .mystery-button:focus {
+      outline: 2px solid var(--color-black);
+      outline-offset: 8px;
+    }
+
+    @media (max-width: 640px) {
+      .mystery-button {
+        width: 100px;
+        height: 100px;
+      }
+
+      .mystery-button__core {
+        width: 50px;
+        height: 50px;
+      }
+
+      .mystery-button__core svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       ABSTRACT LINE ART - Right side
+       ============================================ -->
+  <div class="line-art" aria-hidden="true">
+    <svg width="300" height="600" viewBox="0 0 300 600" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- Vertical spine -->
+      <line class="line" x1="150" y1="0" x2="150" y2="600" stroke="#000" stroke-width="1"/>
+
+      <!-- Horizontal breaks - representing disconnection/freedom -->
+      <line class="line" x1="0" y1="100" x2="130" y2="100" stroke="#000" stroke-width="1"/>
+      <line class="line" x1="170" y1="100" x2="300" y2="100" stroke="#000" stroke-width="1"/>
+
+      <line class="line" x1="0" y1="250" x2="120" y2="250" stroke="#000" stroke-width="1"/>
+      <line class="line" x1="180" y1="250" x2="300" y2="250" stroke="#000" stroke-width="1"/>
+
+      <line class="line" x1="0" y1="400" x2="110" y2="400" stroke="#000" stroke-width="1"/>
+      <line class="line" x1="190" y1="400" x2="300" y2="400" stroke="#000" stroke-width="1"/>
+
+      <!-- Vertical accent lines -->
+      <line class="line" x1="50" y1="50" x2="50" y2="150" stroke="#000" stroke-width="1"/>
+      <line class="line" x1="250" y1="200" x2="250" y2="300" stroke="#000" stroke-width="1"/>
+      <line class="line" x1="50" y1="350" x2="50" y2="450" stroke="#000" stroke-width="1"/>
+      <line class="line" x1="250" y1="500" x2="250" y2="580" stroke="#000" stroke-width="1"/>
+
+      <!-- Corner brackets - architectural -->
+      <polyline class="line" points="20,20 20,60 40,60" fill="none" stroke="#000" stroke-width="1"/>
+      <polyline class="line" points="280,180 280,220 260,220" fill="none" stroke="#000" stroke-width="1"/>
+      <polyline class="line" points="30,320 30,360 50,360" fill="none" stroke="#000" stroke-width="1"/>
+      <polyline class="line" points="270,460 270,500 250,500" fill="none" stroke="#000" stroke-width="1"/>
+
+      <!-- Small dots - minimal accents -->
+      <circle class="line" cx="150" cy="100" r="2" fill="#000"/>
+      <circle class="line" cx="150" cy="250" r="2" fill="#000"/>
+      <circle class="line" cx="150" cy="400" r="2" fill="#000"/>
+
+    </svg>
+  </div>
+
+  <!-- ============================================
+       HEADER
+       ============================================ -->
+  <header class="header">
+    <div class="container">
+      <div class="header__content">
+        <div class="header__logo">Digital Sovereignty</div>
+        <a href="digital-sovereignty-landing.html" class="header__back">← Back to Home</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================
+       HERO SECTION
+       ============================================ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__content">
+        <h1 class="hero__title">
+          Your Complete Digital Ecosystem
+        </h1>
+        <p class="hero__subtitle">
+          Every service you need for true digital independence, self-hosted and under your control.
+        </p>
+
+        <div class="hero__lines" aria-hidden="true">
+          <div class="hero__line"></div>
+          <div class="hero__line"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SERVICES SECTION
+       ============================================ -->
+  <section class="services">
+    <div class="container">
+
+      <div class="services__intro fade-in">
+        <p class="services__intro-text">
+          Browse our curated selection of self-hosted services. Each solution has been chosen for its security, reliability, and commitment to user freedom.
+        </p>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="services__grid">
+
+        <!-- Email Service -->
+        <a href="#email" class="service-box fade-in" aria-label="Email service details">
+          <div class="service-box__content">
+            <h2 class="service-box__title">Email Server</h2>
+            <p class="service-box__description">
+              Complete email solution with SMTP, IMAP, spam filtering, and webmail interface. Own your communications.
+            </p>
+          </div>
+          <span class="service-box__tech">Mail-in-a-Box • Mailcow</span>
+        </a>
+
+        <!-- Cloud Storage -->
+        <a href="#cloud" class="service-box fade-in" aria-label="Cloud storage service details">
+          <div class="service-box__content">
+            <h2 class="service-box__title">Cloud Storage</h2>
+            <p class="service-box__description">
+              Sync files across devices with full encryption. Your personal Dropbox alternative with complete privacy.
+            </p>
+          </div>
+          <span class="service-box__tech">Nextcloud • Seafile</span>
+        </a>
+
+        <!-- Password Manager -->
+        <a href="#passwords" class="service-box fade-in" aria-label="Password manager service details">
+          <div class="service-box__content">
+            <h2 class="service-box__title">Password Manager</h2>
+            <p class="service-box__description">
+              Secure vault for passwords, 2FA codes, and sensitive data. No third-party ever sees your secrets.
+            </p>
+          </div>
+          <span class="service-box__tech">Vaultwarden • Bitwarden</span>
+        </a>
+
+        <!-- Chat & Messaging -->
+        <a href="#chat" class="service-box fade-in" aria-label="Chat service details">
+          <div class="service-box__content">
+            <h2 class="service-box__title">Instant Messaging</h2>
+            <p class="service-box__description">
+              End-to-end encrypted chat for teams and individuals. Slack alternative without corporate surveillance.
+            </p>
+          </div>
+          <span class="service-box__tech">Matrix • Rocket.Chat</span>
+        </a>
+
+        <!-- Media Streaming -->
+        <a href="#media" class="service-box fade-in" aria-label="Media streaming service details">
+          <div class="service-box__content">
+            <h2 class="service-box__title">Media Server</h2>
+            <p class="service-box__description">
+              Stream your music, videos, and photos to any device. Your personal Netflix and Spotify combined.
+            </p>
+          </div>
+          <span class="service-box__tech">Jellyfin • Plex</span>
+        </a>
+
+        <!-- Document Editing -->
+        <a href="#docs" class="service-box fade-in" aria-label="Document editing service details">
+          <div class="service-box__content">
+            <h2 class="service-box__title">Office Suite</h2>
+            <p class="service-box__description">
+              Collaborative document editing, spreadsheets, and presentations. Google Docs without the tracking.
+            </p>
+          </div>
+          <span class="service-box__tech">OnlyOffice • Collabora</span>
+        </a>
+
+        <!-- VPN Server -->
+        <a href="#vpn" class="service-box fade-in" aria-label="VPN service details">
+          <div class="service-box__content">
+            <h2 class="service-box__title">VPN Server</h2>
+            <p class="service-box__description">
+              Secure remote access to your network from anywhere. No commercial VPN logging your traffic.
+            </p>
+          </div>
+          <span class="service-box__tech">WireGuard • OpenVPN</span>
+        </a>
+
+        <!-- RSS Reader -->
+        <a href="#rss" class="service-box fade-in" aria-label="RSS reader service details">
+          <div class="service-box__content">
+            <h2 class="service-box__title">RSS Aggregator</h2>
+            <p class="service-box__description">
+              Follow blogs, news, and podcasts in one place. Curate your information diet algorithmically-free.
+            </p>
+          </div>
+          <span class="service-box__tech">FreshRSS • Miniflux</span>
+        </a>
+
+        <!-- Git Hosting -->
+        <a href="#git" class="service-box fade-in" aria-label="Git hosting service details">
+          <div class="service-box__content">
+            <h2 class="service-box__title">Git Hosting</h2>
+            <p class="service-box__description">
+              Host your code repositories with CI/CD pipelines. GitHub alternative you fully control.
+            </p>
+          </div>
+          <span class="service-box__tech">Gitea • GitLab</span>
+        </a>
+
+        <!-- Bookmarks -->
+        <a href="#bookmarks" class="service-box fade-in" aria-label="Bookmark manager service details">
+          <div class="service-box__content">
+            <h2 class="service-box__title">Bookmark Manager</h2>
+            <p class="service-box__description">
+              Save, organize, and search your bookmarks. Access your saved web content from anywhere.
+            </p>
+          </div>
+          <span class="service-box__tech">LinkWarden • Wallabag</span>
+        </a>
+
+        <!-- Photo Management -->
+        <a href="#photos" class="service-box fade-in" aria-label="Photo management service details">
+          <div class="service-box__content">
+            <h2 class="service-box__title">Photo Gallery</h2>
+            <p class="service-box__description">
+              Organize, share, and backup your photos with AI-powered tagging. Google Photos without the data mining.
+            </p>
+          </div>
+          <span class="service-box__tech">PhotoPrism • Immich</span>
+        </a>
+
+        <!-- Note Taking -->
+        <a href="#notes" class="service-box fade-in" aria-label="Note taking service details">
+          <div class="service-box__content">
+            <h2 class="service-box__title">Note Taking</h2>
+            <p class="service-box__description">
+              Capture thoughts, ideas, and knowledge with powerful search and organization. Evernote alternative.
+            </p>
+          </div>
+          <span class="service-box__tech">Joplin • Standard Notes</span>
+        </a>
+
+        <!-- Calendar & Contacts -->
+        <a href="#calendar" class="service-box fade-in" aria-label="Calendar service details">
+          <div class="service-box__content">
+            <h2 class="service-box__title">Calendar & Contacts</h2>
+            <p class="service-box__description">
+              Sync calendars, contacts, and tasks across all devices. No cloud provider selling your schedule.
+            </p>
+          </div>
+          <span class="service-box__tech">Radicale • Baikal</span>
+        </a>
+
+        <!-- Home Automation -->
+        <a href="#home" class="service-box fade-in" aria-label="Home automation service details">
+          <div class="service-box__content">
+            <h2 class="service-box__title">Home Automation</h2>
+            <p class="service-box__description">
+              Control smart home devices locally. No cloud dependency, no corporate spying on your home.
+            </p>
+          </div>
+          <span class="service-box__tech">Home Assistant</span>
+        </a>
+
+        <!-- DNS Server -->
+        <a href="#dns" class="service-box fade-in" aria-label="DNS service details">
+          <div class="service-box__content">
+            <h2 class="service-box__title">DNS & Ad Blocker</h2>
+            <p class="service-box__description">
+              Network-wide ad blocking and DNS server. Block tracking and ads at the network level.
+            </p>
+          </div>
+          <span class="service-box__tech">Pi-hole • AdGuard Home</span>
+        </a>
+
+        <!-- Monitoring -->
+        <a href="#monitoring" class="service-box fade-in" aria-label="Monitoring service details">
+          <div class="service-box__content">
+            <h2 class="service-box__title">System Monitoring</h2>
+            <p class="service-box__description">
+              Monitor server health, uptime, and performance. Keep your infrastructure running smoothly.
+            </p>
+          </div>
+          <span class="service-box__tech">Uptime Kuma • Grafana</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       DIVIDER
+       ============================================ -->
+  <div class="divider fade-in">
+    <div class="divider__line">
+      <div class="divider__dot"></div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       GIF SECTION - BOTTOM LEFT WITH TEXT INTEGRATION
+       ============================================ -->
+  <section class="art-section">
+    <div class="container">
+      <div class="art-section__content">
+        <div class="art-section__gif">
+          <img src="animation art GIF by sahlooter.gif" alt="Abstract animation art" class="art-gif">
+        </div>
+        <div class="art-section__text">
+          <p class="art-text">
+            Beyond technology lies <em>artistry</em>. Each service we provide is crafted with the same care
+            a painter gives to their canvas—deliberate, thoughtful, alive with purpose.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       MYSTERIOUS BUTTON - DISCOVER THE ART
+       ============================================ -->
+  <section class="mystery-section">
+    <div class="container">
+      <a href="van-gogh-cherry-blossom.html" class="mystery-button" aria-label="Discover something beautiful">
+        <div class="mystery-button__ring mystery-button__ring--outer"></div>
+        <div class="mystery-button__ring mystery-button__ring--middle"></div>
+        <div class="mystery-button__ring mystery-button__ring--inner"></div>
+        <div class="mystery-button__core">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C12 2 8 6 8 12C8 16 10 18 12 18C14 18 16 16 16 12C16 6 12 2 12 2Z" fill="currentColor" opacity="0.6"/>
+            <circle cx="12" cy="14" r="3" fill="currentColor"/>
+            <path d="M12 18C12 18 10 19 10 21C10 22 11 23 12 23C13 23 14 22 14 21C14 19 12 18 12 18Z" fill="currentColor" opacity="0.4"/>
+          </svg>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <p class="footer__text">Building sovereign digital futures since 2025</p>
+        <a href="mailto:hello@digitalfreedom.io" class="footer__email">
+          hello@digitalfreedom.io
+        </a>
+        <p class="footer__copyright">&copy; 2025 Digital Sovereignty</p>
+
+        <!-- Geometric signature mark -->
+        <div class="footer__mark" aria-hidden="true"></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       JAVASCRIPT - Intersection Observer for scroll animations
+       ============================================ -->
+  <script>
+    /**
+     * Intersection Observer for fade-in animations
+     * Elements with class 'fade-in' will animate when scrolled into view
+     */
+    document.addEventListener('DOMContentLoaded', function() {
+
+      // Check if user prefers reduced motion
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReducedMotion) {
+        // If reduced motion is preferred, show all elements immediately
+        document.querySelectorAll('.fade-in').forEach(function(element) {
+          element.classList.add('visible');
+        });
+        return;
+      }
+
+      // Intersection Observer options
+      const observerOptions = {
+        threshold: 0.2, // Trigger when 20% of element is visible
+        rootMargin: '0px 0px -50px 0px' // Slightly offset trigger point
+      };
+
+      // Callback function when elements intersect
+      const observerCallback = function(entries, observer) {
+        entries.forEach(function(entry, index) {
+          if (entry.isIntersecting) {
+            // Add stagger delay based on order
+            setTimeout(function() {
+              entry.target.classList.add('visible');
+            }, index * 100); // 100ms stagger between elements
+
+            // Stop observing this element
+            observer.unobserve(entry.target);
+          }
+        });
+      };
+
+      // Create the observer
+      const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+      // Observe all elements with .fade-in class
+      const fadeElements = document.querySelectorAll('.fade-in');
+      fadeElements.forEach(function(element) {
+        observer.observe(element);
+      });
+
+    });
+  </script>
+
+</body>
+</html>
